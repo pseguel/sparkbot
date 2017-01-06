@@ -14,7 +14,12 @@ api = CiscoSparkAPI()
 
 
 class webhook(object):
-         def POST(self):
+        def GET(self, name):
+            if not name: 
+                name = 'World'
+            return 'Hello, ' + name + '!'
+
+        def POST(self):
             #atiende al POST de Spark
             json_data = web.data()
 
