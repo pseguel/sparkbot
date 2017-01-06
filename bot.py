@@ -8,16 +8,15 @@ import requests
 from ciscosparkapi import CiscoSparkAPI, Webhook
 
 # Global variables
-urls = ('/sparkwebhook', 'webhook')
+urls = ('/sparkwebhook', 'webhook', '/', 'index')
 app = web.application(urls, globals())
 api = CiscoSparkAPI()
 
+class index:
+    def GET(self):
+        return "Hello, world!"
 
 class webhook(object):
-        def GET(self, name):
-            if not name: 
-                name = 'World'
-            return 'Hello, ' + name + '!'
 
         def POST(self):
             #atiende al POST de Spark
